@@ -1,23 +1,26 @@
 extends CharacterBody3D
 
 var speed
-var walk_speed = 5.0
-var sprint_speed = 8.0
-var jump_velocity = 5.0
-var sensitivity = 0.004
+@export var walk_speed = 5.0
+@export var sprint_speed = 8.0
+@export var jump_velocity = 5.0
+@export var sensitivity = 0.004
 
 #bob variables
-var bob_freq = 2.4
-var bob_amp = 0.08
-var t_bob = 0.0
+@export var bob_freq = 2.4
+@export var bob_amp = 0.08
+@export var t_bob = 0.0
 
 #fov variables
-var base_fov = 75.0
-var fov_change = 1.5
+@export var base_fov = 75.0
+@export var fov_change = 1.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 9.8
-var can_jump = true
+@export var gravity = 9.8
+@export var can_jump = true
+
+@export var dash_speed = 18.0
+@export var dash_time = 0.2
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -73,6 +76,10 @@ func _physics_process(delta):
 	var velocity_clamped = clamp(velocity.length(), 0.5, sprint_speed * 2)
 	var target_fov = base_fov + fov_change * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	
+	
+	if Input.is_action_just_pressed("Dash"):
+		velocity
 	
 	move_and_slide()
 	
