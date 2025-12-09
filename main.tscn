@@ -43,4 +43,4 @@ mesh = SubResource("BoxMesh_ig7tw")
 shape = SubResource("BoxShape3D_0xm2m")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.778345, 3.1924324, 7.044847)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2567673, 3.1924324, 7.044847)
