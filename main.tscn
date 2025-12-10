@@ -18,5 +18,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29059303, 1.0325658, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1)
 
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.041428722, 0.059610207, 0.99736166, -0.9982928, -0.038666908, 0.04377844, 0.041174535, -0.99747264, 0.057906523, 6.3524313, 0.6755254, 6.8658276)
+size = Vector3(1, 1, 2.342987)
+
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6553545, 2.812306, 2.7753077)
