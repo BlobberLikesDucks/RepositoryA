@@ -15,5 +15,8 @@ material = SubResource("StandardMaterial3D_7dm0k")
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29059303, 1.0325658, 0)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1)
+
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6553545, 2.812306, 2.7753077)
