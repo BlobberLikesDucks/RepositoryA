@@ -1,47 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bot53puihdgyp"]
+[gd_scene load_steps=3 format=3 uid="uid://dp8cod7wdewqj"]
 
-[ext_resource type="PackedScene" uid="uid://c5dpk076d1drr" path="res://player.tscn" id="1_ig7tw"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
+size = Vector3(0.001, 1.4516602, 0.18798828)
 
-[sub_resource type="Sky" id="Sky_0xm2m"]
-sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
+[node name="ground" type="StaticBody3D"]
 
-[sub_resource type="Environment" id="Environment_h2yge"]
-background_mode = 2
-sky = SubResource("Sky_0xm2m")
-tonemap_mode = 2
-glow_enabled = true
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99589556, -0.0017660081, 0.090493694, 0, 0.9998097, 0.019511543, -0.09051092, -0.019431457, 0.99570596, -0.13095605, -0.23904955, -0.1734072)
+mesh = SubResource("PlaneMesh_7dm0k")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
-albedo_color = Color(0.85480887, 0.8162933, 0.44977164, 1)
-
-[node name="Main" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h2yge")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56230164, 0, -8.115646)
-use_collision = true
-size = Vector3(21.697784, 0.5, 36.986053)
-material = SubResource("StandardMaterial3D_7dm0k")
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29059303, 1.0325658, 0)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
-transform = Transform3D(0.041428722, 0.05961021, 0.9973616, -0.98575413, -0.16042152, 0.05053463, 0.16301066, -0.9852471, 0.052114956, 6.3524313, 0.6755254, 6.8658276)
-size = Vector3(1, 1, 2.342987)
-
-[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6553545, 2.812306, 2.7753077)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.15186206, 0.9863861, 0.063206315, -0.98810124, -0.15310034, 0.015203981, 0.024673592, -0.060144916, 0.9978922, -0.13115701, -0.24436598, -0.57242405)
+shape = SubResource("BoxShape3D_ig7tw")
